@@ -6,11 +6,12 @@ def dig_pow(n,p):
         power_list.append(int(math.pow(n_list[i], p+i)))
     #sum(power_list)/n
     if (sum(power_list)/n).is_integer():
-        print('k exists')
+        #print('k exists')
         return sum(power_list)//n
     else:
-        print('k doesnt exist')
-    return power_list
-    return -1
+        #print('k doesnt exist')
+        return -1
+    #return power_list
+    #return -1
 
 print(dig_pow(46288, 3))
