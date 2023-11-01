@@ -4,6 +4,6 @@ public class ReturningStrings{
     }
 
     public static String greet(String name){
-        return ("Hello, " + na  me + " how are you doing today?");
+        return ("Hello, " + name + " how are you doing today?");
     }
 }
