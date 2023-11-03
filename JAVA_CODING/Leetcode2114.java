@@ -5,16 +5,12 @@ public class Leetcode2114 {
         int max = 0;
         for(String sentence : sentences){
             String[] words = sentence.split(" ");
-        
-        for(String word : words){
-            int length = word.length();
-            if(length>max){
-                max=length;
+        int wordCount = words.length;
+
+        if(wordCount>max){
+            max = wordCount;
+        }    
             }
-            
-        }
-        
-        }
         return max;
     }
 
