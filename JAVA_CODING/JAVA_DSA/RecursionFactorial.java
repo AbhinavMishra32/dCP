@@ -22,12 +22,35 @@ public class RecursionPower{
         int power = x*powernm1;
         return power;
     }
+    public static int selfRecursionPower(int x, int n){
+        if(n==1){
+            return 1;
+        }
+
+        return x*selfRecursionPower(x,n-1);
+    }
+    public static int recursionPowerNlogN(int x, int n){
+        if(n==1){
+            return 1;
+        }
+        if(x==0){
+            return 0;
+        }
+        //n is even
+        if(n%2==0){
+            return recursionPowerNlogN(x, n/2) * recursionPowerNlogN(x, n/2);
+        }
+        else{ //n is odd
+            return recursionPowerNlogN(x, (n-1)/2) * recursionPowerNlogN(x, (n-1)/2) * x;
+        }
+
 }
 
-public class
-
+}
     public static void main(String[] args){
-        RecursionFactorial ny = new RecursionFactorial();
-        System.out.println(RecursionPower.recursionPowerFinder(2, 5));
+        //ecursionFactorial ny = new RecursionFactorial();
+        //System.out.println(RecursionPower.recursionPowerFinder(2, 5));
+        //System.out.println(RecursionPower.selfRecursionPower(2, 5));
+        System.out.println(RecursionPower.recursionPowerNlogN(2, 4));
     }
 }
