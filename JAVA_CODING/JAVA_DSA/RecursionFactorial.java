@@ -33,7 +33,7 @@ public class RecursionPower{
         if(n==0){
             return 1;
         }
-        if(x==0){
+        if(x==0){ // only when x is 0, dont worry in dry run
             return 0;
         }
         //n is even
@@ -41,7 +41,7 @@ public class RecursionPower{
             return recursionPowerNlogN(x, n/2) * recursionPowerNlogN(x, n/2);
         }
         else{ //n is odd
-            return recursionPowerNlogN(x, (n-1)/2) * recursionPowerNlogN(x, (n-1)/2) * x;
+            return recursionPowerNlogN(x, (n)/2) * recursionPowerNlogN(x, (n)/2) * x;
         }
 
 }
@@ -50,7 +50,7 @@ public class RecursionPower{
     public static void main(String[] args){
 //        System.out.println(RecursionPower.recursionPowerNlogN(2, 5));
         int base = 2;
-        int exponent = 10;
+        int exponent = 4;
         int result = RecursionPower.recursionPowerNlogN(base, exponent);
         System.out.println(base + " raised to the power of " + exponent + " is: " + result);
     }
