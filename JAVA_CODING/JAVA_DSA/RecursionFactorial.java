@@ -10,8 +10,24 @@ public class RecursionFactorial{
 
     }
 
+public class RecursionPower{
+    public static int recursionPowerFinder(int x, int n){  
+        if(x==0){
+            return 0;
+        }
+        if(n==0){
+            return 1;
+        }
+        int powernm1 = recursionPowerFinder(x, n-1);
+        int power = x*powernm1;
+        return power;
+    }
+}
+
+public class
+
     public static void main(String[] args){
         RecursionFactorial ny = new RecursionFactorial();
-        System.out.println(ny.factorial(5));
+        System.out.println(RecursionPower.recursionPowerFinder(2, 5));
     }
 }
