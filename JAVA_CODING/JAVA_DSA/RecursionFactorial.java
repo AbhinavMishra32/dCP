@@ -30,7 +30,7 @@ public class RecursionPower{
         return x*selfRecursionPower(x,n-1);
     }
     public static int recursionPowerNlogN(int x, int n){
-        if(n==1){
+        if(n==0){
             return 1;
         }
         if(x==0){
@@ -48,9 +48,10 @@ public class RecursionPower{
 
 }
     public static void main(String[] args){
-        //ecursionFactorial ny = new RecursionFactorial();
-        //System.out.println(RecursionPower.recursionPowerFinder(2, 5));
-        //System.out.println(RecursionPower.selfRecursionPower(2, 5));
-        System.out.println(RecursionPower.recursionPowerNlogN(2, 4));
+//        System.out.println(RecursionPower.recursionPowerNlogN(2, 5));
+        int base = 2;
+        int exponent = 10;
+        int result = RecursionPower.recursionPowerNlogN(base, exponent);
+        System.out.println(base + " raised to the power of " + exponent + " is: " + result);
     }
 }
