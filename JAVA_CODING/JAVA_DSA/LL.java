@@ -71,12 +71,18 @@ public class LL {
     public void deleteData(String x){
         Node currNode = head;
         Node prevNode = null;
-        Node currNodeNext = currNode.next;
+        
         while(!currNode.data.equals(x)){
             prevNode = currNode;
             currNode = currNode.next;
         }
-        prevNode = currNodeNext;
+        //Node currNodeNext = currNode.next;
+        if (prevNode == null) {
+            // If the node to be deleted is the head
+            head = currNode.next;
+        } else {
+            prevNode.next = currNode.next;
+        }
 
     }
     public void deleteFirst(){
@@ -86,10 +92,17 @@ public class LL {
 
     public void deleteLast(){
         Node currNode = head;
+        Node prevNode = null;
         while(currNode.next != null){
+            prevNode = currNode;
             currNode = currNode.next;
         }
-        currNode = null;
+        if(prevNode == null){
+            head = null;
+        }
+        else{
+            prevNode.next = null;
+        }
     }
 
     public static void main(String[] args) {
@@ -97,12 +110,15 @@ public class LL {
         list.addFirst("a");
         list.addFirst("b");
         list.addFirst("c");
-        // list.addFirst("d");
-        // list.addFirst("e");
-        // list.addFirst("f");
-        // list.addFirst("g");
+        list.addFirst("d");
+        list.addFirst("e");
+        list.addFirst("f");
+        list.addFirst("g");
         list.addLast("Last");
-        list.deleteData("c");
+        list.deleteData("a");
+        list.deleteLast();
+        list.deleteLast();
+        list.deleteLast();
         list.printList();
         //System.out.println("\n"+list.length());
         //System.out.println(list.indexOf("c"));
