@@ -70,11 +70,13 @@ public class LL {
     }
     public void deleteData(String x){
         Node currNode = head;
+        Node prevNode = null;
         Node currNodeNext = currNode.next;
-        while(currNode.data != x){
+        while(!currNode.data.equals(x)){
+            prevNode = currNode;
             currNode = currNode.next;
         }
-        currNode.next = currNodeNext.next;
+        prevNode = currNodeNext;
 
     }
     public void deleteFirst(){
@@ -85,8 +87,9 @@ public class LL {
     public void deleteLast(){
         Node currNode = head;
         while(currNode.next != null){
-            
+            currNode = currNode.next;
         }
+        currNode = null;
     }
 
     public static void main(String[] args) {
@@ -94,11 +97,15 @@ public class LL {
         list.addFirst("a");
         list.addFirst("b");
         list.addFirst("c");
+        // list.addFirst("d");
+        // list.addFirst("e");
+        // list.addFirst("f");
+        // list.addFirst("g");
         list.addLast("Last");
         list.deleteData("c");
         list.printList();
-        System.out.println("\n"+list.length());
-        System.out.println(list.indexOf("c"));
+        //System.out.println("\n"+list.length());
+        //System.out.println(list.indexOf("c"));
         // list.length().toString;
     }
 }
