@@ -19,6 +19,9 @@ class Solution {
             curr= curr.next;
             size++;
         }
+        if(n==size){
+            return head.next;
+        }
         int indexToSearch = size-n;
         curr = head;
         ListNode prev = head;
