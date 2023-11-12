@@ -40,7 +40,7 @@ public class LL {
             System.out.print(currNode.data + " -> ");
             currNode = currNode.next;
         }
-        System.out.print("NULL");
+        System.out.print("NULL \n");
     }
     public int length(){
         int length = -1;
@@ -104,6 +104,21 @@ public class LL {
             prevNode.next = null;
         }
     }
+    public void reverseList(){
+        if(head== null){
+            return;
+        }
+        Node currNode = head;
+        Node prevNode = null;
+        Node nextNode;
+        while(currNode != null){
+            nextNode = currNode.next;
+            currNode.next = prevNode;
+            prevNode = currNode;
+            currNode = nextNode;    
+        }
+        head = prevNode;
+    }
 
     public static void main(String[] args) {
         LL list = new LL();
@@ -115,11 +130,14 @@ public class LL {
         list.addFirst("f");
         list.addFirst("g");
         list.addLast("Last");
-        list.deleteData("a");
-        list.deleteLast();
-        list.deleteLast();
-        list.deleteLast();
+        // list.deleteData("a");
+        // list.deleteLast();
+        // list.deleteLast();
+        // list.deleteLast();
         list.printList();
+        list.reverseList();
+        list.printList();
+
         //System.out.println("\n"+list.length());
         //System.out.println(list.indexOf("c"));
         // list.length().toString;
