@@ -40,7 +40,5 @@ class Solution {
         return head;
         
     }
-    public static void main(String[] args){
-        Solution.ListNode myobj = new Solution.ListNode();
-    }
+    
 }
