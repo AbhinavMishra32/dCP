@@ -27,8 +27,20 @@ class Solution {
         }
         int size = 0;
         ListNode currNode = head;
+        ListNode prevNode = currNode;
         while(currNode.next != null){
+            size++;
+            prevNode = currNode;
             currNode = currNode.next;
+            int nthFromLast = size-n+1;
+            if(size == nthFromLast){
+                prevNode.next = currNode.next;
+            }
         }
+        return head;
+        
+    }
+    public static void main(String[] args){
+        Solution.ListNode myobj = new Solution.ListNode();
     }
 }
