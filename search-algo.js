@@ -19,7 +19,7 @@ function searchStrings(arrayOfStrings, searchTerm = ''){
                 j = sentence.length;
             }
             else{
-                console.log("NOT MATCHED");
+                //console.log("NOT MATCHED");
                 j = j+searchTerm.length;
             }
 
