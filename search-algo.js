@@ -29,7 +29,7 @@ function searchStrings(arrayOfStrings, searchTerm = ''){
     //}
 
 
-searchStrings(database, 'hello');
+searchStrings(database, 'hel');
 
 
 
