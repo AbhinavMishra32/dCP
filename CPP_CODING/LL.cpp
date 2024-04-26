@@ -24,9 +24,26 @@ void insertAtLast(Node *&head, int val)
     }
 
     Node *temp = head;
-    while (temp->next != NULL)
-    {
+    while (temp->next != NULL){
         temp = temp->next;
     }
-    temp->next = n
+    temp->next = n;
+}
+
+void printLL(Node* LL){
+    while(LL != NULL){
+        printf("%d \n", LL->data);
+        LL = LL->next;
+    }
+}
+
+
+int main(){
+    Node* head = nullptr;
+
+    insertAtLast(head, 5);
+    insertAtLast(head, 6);
+    printf("printing the list: \n");
+    printLL(head);
+    getchar();
 }
