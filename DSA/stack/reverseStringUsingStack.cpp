@@ -25,7 +25,7 @@ public:
         return top == size - 1;
     }
 
-    void push(int val)
+    void push(T val)
     {
         if (isFull())
         {
@@ -80,22 +80,52 @@ public:
         return top;
     }
 };
+// reversing string:
+// int main()
+// {
+//     string k = "Abhinav";
+//     Stack<char> s(k.length());
+
+//     for (int i = 0; i < k.length(); i++)
+//     {
+//         s.push(k[i]);
+//     }
+//     cout << "Reversed string using stack:" << endl;
+
+//     for (int i = 0; i < k.length(); i++)
+//     {
+//         // cout << "Top: " << s.getTop() << endl;
+//         cout << s.pop();
+//     }
+//     cout << endl;
+// }
+
+// checking palindrome:
 
 int main()
 {
-    string k = "Abhinav";
+    string k = "aabaa";
+    string m;
     Stack<char> s(k.length());
 
     for (int i = 0; i < k.length(); i++)
     {
         s.push(k[i]);
     }
-    cout << "Reversed string using stack:" << endl;
-
-    for (int i = 0; i < k.length(); i++)
+    int i = 0;
+    while (!s.isEmpty())
     {
-        // cout << "Top: " << s.getTop() << endl;
-        cout << s.pop();
+        if (k[i++] != s.pop())
+        {
+            break;
+        }
     }
-    cout << endl;
+    if (s.isEmpty())
+    {
+        printf("Palindrome\n");
+    }
+    else
+    {
+        printf("Not Palindrome\n");
+    }
 }
