@@ -37,6 +37,48 @@ void add_last(int data){
     temp->next->next = NULL;
 }
 
+void insert_after(Node *Q, int data){
+    Node *temp = (Node*)malloc(sizeof(Node));
+    if (temp == NULL) {
+        printf("Memory allocation failed\n");
+        return;
+    }
+    temp->data = data;
+    temp->next = Q->next;
+    Q->next = temp;
+}
+
+void insert_after_data(int target_data, int new_data){
+    Node *temp = start;
+    while(temp != NULL && temp->data != target_data) temp = temp->next;
+
+    if (temp != NULL) {
+        insert_after(temp, new_data);
+    } else {
+        printf("Node with data %d not found\n", target_data);
+    }
+}
+
+void delete_after(Node *Q){
+    Node *temp = Q->next;
+    if (temp == NULL){
+        printf("Not possible \n");
+        return;
+    }
+    Q->next = Q->next->next;
+    free(temp);
+}
+
+void delete_after_data(int data){
+    Node *temp = start;
+    while(temp->data != data && temp != NULL) temp = temp->next;
+
+    if (temp != NULL)
+        delete_after(temp);
+    else
+        printf("Node with data %d not found\n", data);
+}
+
 void show(){
     Node *temp = start;
     while(temp != NULL){
@@ -52,6 +94,8 @@ int main(){
     add_start(2);
     add_start(6);
     add_last(4);
+    insert_after_data(6, 252);
+    delete_after_data(4);
 
     show();
 }
