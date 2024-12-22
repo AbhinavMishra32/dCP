@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <queue>
 using namespace std;
 
 class BSTNode {
@@ -50,13 +51,30 @@ public:
     prettyDisplay(node->left, level +1);
   }
 
-  void bft(BSTNode* node){
+  void dft(BSTNode* node){
     if (node == nullptr) return;
 
     cout << node->value << " ";
 
-    bft(node->left);
-    bft(node->right);
+    dft(node->left);
+    dft(node->right);
+  }
+
+  void bft(BSTNode* node){
+    if (node == nullptr) return;
+
+    queue<BSTNode*> q;
+    q.push(node);
+
+    while(!q.empty()){
+      BSTNode* node = q.front();
+      cout << node->value << " ";
+      q.pop();
+
+      if (node->left != nullptr) q.push(node->left);
+      if (node->right != nullptr) q.push(node->right);
+    }
+
   }
 };
 
@@ -69,6 +87,9 @@ int main(){
   root->bstpopulate();
 
   root->prettyDisplay(root, 0);
+
+  root->dft(root);
+  cout << "BFT: "<<endl;
 
   root->bft(root);
 }
