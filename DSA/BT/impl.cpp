@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <queue>
 using namespace std;
 
 class Node {
@@ -36,6 +38,34 @@ public:
     }
   }
 
+  void buildFromArray(vector<int> &vec){
+    if (vec.size() == 0) return;
+
+    Node* root = new Node(vec[0]);
+    Node* temp;
+    Node* leftNode;
+    Node* rightNode;
+
+    if (vec.size() > 1){
+      leftNode = new Node(vec[1]);
+      root->left = leftNode;
+    }
+    if (vec.size() > 2) {
+      rightNode = new Node(vec[2]);
+      root->right = rightNode;
+    }
+
+    int i = 1;
+    while(2*i + 2 < vec.size()){
+      temp = new Node(vec[i]);
+      leftNode = new Node(vec[2*i + 1]);
+      rightNode = new Node(vec[2*i + 2]);
+      temp->left = leftNode;
+      temp->right = rightNode;
+      i++;
+    }
+  }
+
   void display(){
     cout << this->value << " ";
     if (this->left != nullptr){
@@ -53,7 +83,9 @@ int main(){
   cin>> rootValue;
   Node* root = new Node(rootValue);
   cout << endl;
-  root->populate();
+  vector<int> vec = {1, 2, 3, 4, 5, 6, 7};
+  root->buildFromArray(vec);
+  /*root->populate();*/
   root->display();
 
   return 0;
