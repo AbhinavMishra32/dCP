@@ -15,18 +15,19 @@ public:
 
   void populate(){
     char choice;
-    cout<< "Enter to LEFT or RIGHT of " << this->value << " (l/r): ";
+    cout<< "Enter to LEFT of [" << this->value << "] (Y/n): ";
     cin >> choice;
 
-    if (choice == 'l' || choice == 'L'){
+    if (choice == 'y' || choice == 'Y'){
       int value;
       cout << "Enter value for LEFT child of [" << this->value << "]: "; 
       cin >> value;
       this->left = new Node(value);
       this->left->populate();
     }
-    cout << "Enter to RIGHT of " << this->value << " (l/r): ";
-    if (choice == 'r' || choice == 'R'){
+    cout << "Enter to RIGHT of " << this->value << " (Y/n): ";
+    cin >> choice;
+    if (choice == 'y' || choice == 'Y'){
       this->left = nullptr;
       int value;
       cout << "Enter value for RIGHT child of [" << this->value << "]: ";
@@ -35,6 +36,20 @@ public:
       this->right->populate();
     }
   }
+
+  void levelOrder(){
+    vector<vector<int>> vec;
+
+    queue<Node*> q;
+
+    q.push(this);
+
+    while (!q.empty()){
+      vector<int> level;
+
+    }
+  }
+
 
   void display(){
     cout << this->value << " ";
