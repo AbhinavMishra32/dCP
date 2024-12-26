@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <queue>
 using namespace std;
 
 class Node {
@@ -68,7 +70,9 @@ int main(){
   cin>> rootValue;
   Node* root = new Node(rootValue);
   cout << endl;
-  root->populate();
+  vector<int> vec = {1, 2, 3, 4, 5, 6, 7};
+  root->buildFromArray(vec);
+  /*root->populate();*/
   root->display();
 
   return 0;
