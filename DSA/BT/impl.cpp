@@ -17,18 +17,19 @@ public:
 
   void populate(){
     char choice;
-    cout<< "Enter to LEFT or RIGHT of " << this->value << " (l/r): ";
+    cout<< "Enter to LEFT of [" << this->value << "] (Y/n): ";
     cin >> choice;
 
-    if (choice == 'l' || choice == 'L'){
+    if (choice == 'y' || choice == 'Y'){
       int value;
       cout << "Enter value for LEFT child of [" << this->value << "]: "; 
       cin >> value;
       this->left = new Node(value);
       this->left->populate();
     }
-    cout << "Enter to RIGHT of " << this->value << " (l/r): ";
-    if (choice == 'r' || choice == 'R'){
+    cout << "Enter to RIGHT of " << this->value << " (Y/n): ";
+    cin >> choice;
+    if (choice == 'y' || choice == 'Y'){
       this->left = nullptr;
       int value;
       cout << "Enter value for RIGHT child of [" << this->value << "]: ";
@@ -38,33 +39,19 @@ public:
     }
   }
 
-  void buildFromArray(vector<int> &vec){
-    if (vec.size() == 0) return;
+  void levelOrder(){
+    vector<vector<int>> vec;
 
-    Node* root = new Node(vec[0]);
-    Node* temp;
-    Node* leftNode;
-    Node* rightNode;
+    queue<Node*> q;
 
-    if (vec.size() > 1){
-      leftNode = new Node(vec[1]);
-      root->left = leftNode;
-    }
-    if (vec.size() > 2) {
-      rightNode = new Node(vec[2]);
-      root->right = rightNode;
-    }
+    q.push(this);
 
-    int i = 1;
-    while(2*i + 2 < vec.size()){
-      temp = new Node(vec[i]);
-      leftNode = new Node(vec[2*i + 1]);
-      rightNode = new Node(vec[2*i + 2]);
-      temp->left = leftNode;
-      temp->right = rightNode;
-      i++;
+    while (!q.empty()){
+      vector<int> level;
+
     }
   }
+
 
   void display(){
     cout << this->value << " ";
