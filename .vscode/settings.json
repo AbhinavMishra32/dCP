@@ -42,5 +42,6 @@
         "valarray": "c",
         "variant": "c",
         "vector": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }
